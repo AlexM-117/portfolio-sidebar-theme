@@ -19,6 +19,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.title = "";
+    this.description = "";
     this.pageNumber = null;
   }
 
@@ -27,6 +28,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
     return {
       ...super.properties,
       title: { type: String },
+      description: { type: String },
       pageNumber: { type: Number },
     };
   }
@@ -45,8 +47,8 @@ export class PortfolioPage extends DDDSuper(LitElement) {
         h1 {
           font-family: var(--ddd-font-navigation);
           text-align: right;
-          color: rgb(200, 200, 200);
-          background-image: linear-gradient(to right, rgb(200, 200, 200));
+          background-color: darkblue;
+          //background-image: linear-gradient(to right, rgb(200, 200, 200));
         }
         .wrapper {
           padding: 40px;
@@ -62,7 +64,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
   render() {
     return html` <div class="wrapper">
       <h1>${this.title}</h1>
-      <p></p>
+      <p>${this.description}</p>
       <slot></slot>
     </div>`;
   }
