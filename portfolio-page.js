@@ -41,7 +41,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
       super.styles,
       css`
         :host {
-          background-color: var(--ddd-theme-accent);
+          background-color: var(--ddd-theme-accent, white);
           height: 100vh;
           display: block;
         }
@@ -73,9 +73,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
           color: black;
         }
         .content-wrapper {
-          padding: 2rem;
           margin-left: 20%;
-          background-color: white;
         }
         p {
           color: black;
