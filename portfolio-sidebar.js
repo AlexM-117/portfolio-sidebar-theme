@@ -4,27 +4,20 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import "./portfolio-sidebar.js";
 
 /**
- * `portfolio-sidebar-theme`
+ * `portfolio-sidebar`
  *
  * @demo index.html
- * @element portfolio-sidebar-theme
+ * @element portfolio-sidebar
  */
-export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
+export class PortfolioSidebar extends DDDSuper(LitElement) {
   static get tag() {
-    return "portfolio-sidebar-theme";
+    return "portfolio-sidebar";
   }
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
   }
 
   // Lit reactive properties
@@ -46,17 +39,15 @@ export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
         }
-        portfolio-sidebar {
-          color: black;
-          display: block;
-          position: fixed;
-          width: 310px;
-          top: 0;
-          bottom: 0;
-          left: 0;
-        }
         .wrapper {
-          margin-left: 310px;
+          margin: var(--ddd-spacing-2);
+          padding: var(--ddd-spacing-4);
+        }
+        h3 span {
+          font-size: var(
+            --portfolio-sidebar-theme-label-font-size,
+            var(--ddd-font-size-s)
+          );
         }
       `,
     ];
@@ -65,13 +56,16 @@ export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
   // Lit render the HTML
   render() {
     return html` <div class="wrapper">
-      <portfolio-sidebar></portfolio-sidebar>
-      <slot></slot>
+      <div class="links">
+        <p>Link 1</p>
+        <p>Link 2</p>
+        <p>Link 3</p>
+        <p>Link 4</p>
+        <p>Link 5</p>
+        <slot></slot>
+      </div>
     </div>`;
   }
 }
 
-globalThis.customElements.define(
-  PortfolioSidebarTheme.tag,
-  PortfolioSidebarTheme
-);
+globalThis.customElements.define(PortfolioSidebar.tag, PortfolioSidebar);
