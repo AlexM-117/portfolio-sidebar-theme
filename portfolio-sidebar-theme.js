@@ -19,19 +19,12 @@ export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
     };
   }
 
@@ -64,10 +57,10 @@ export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
 
   // Lit render the HTML
   render() {
-    return html` <div class="wrapper">
-      <portfolio-sidebar></portfolio-sidebar>
-      <slot></slot>
-    </div>`;
+    return html` <portfolio-sidebar></portfolio-sidebar>
+      <div class="wrapper">
+        <slot></slot>
+      </div>`;
   }
 }
 

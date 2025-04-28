@@ -19,8 +19,9 @@ export class PortfolioPage extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.title = "";
+    this.subtitle = "";
     this.description = "";
-    this.pageNumber = null;
+    //this.pageNumber = null;
   }
 
   // Lit reactive properties
@@ -28,8 +29,9 @@ export class PortfolioPage extends DDDSuper(LitElement) {
     return {
       ...super.properties,
       title: { type: String },
+      subtitle: { type: String },
       description: { type: String },
-      pageNumber: { type: Number },
+      //pageNumber: { type: Number },
     };
   }
 
@@ -42,19 +44,43 @@ export class PortfolioPage extends DDDSuper(LitElement) {
           background-color: var(--ddd-theme-accent);
           height: 100vh;
           display: block;
-          background-color: white;
         }
         h1 {
           font-family: var(--ddd-font-navigation);
+          font-size: 2.5rem;
           text-align: right;
           background-color: darkblue;
+          padding: 1rem;
+          margin: 0;
           //background-image: linear-gradient(to right, rgb(200, 200, 200));
         }
-        .wrapper {
-          padding: 40px;
+        .subtitle-container {
+          display: block;
+          align-items: center;
+          justify-content: center;
+          margin: 1.5rem 0;
+        }
+        .line {
+          flex: 1;
+          height: 2px;
+          background-color: black;
+          margin: 0 1rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 0;
+          color: black;
+        }
+        .content-wrapper {
+          padding: 2rem;
+          margin-left: 20%;
+          background-color: white;
         }
         p {
           color: black;
+          font-size: 1rem;
+          line-height: 1.5;
         }
       `,
     ];
@@ -62,8 +88,13 @@ export class PortfolioPage extends DDDSuper(LitElement) {
 
   // Lit render the HTML
   render() {
-    return html` <div class="wrapper">
+    return html` <div class="content-wrapper">
       <h1>${this.title}</h1>
+      <div class="subtitle-container">
+        <div class="line"></div>
+        <h2>${this.subtitle}</h2>
+        <div class="line"></div>
+      </div>
       <p>${this.description}</p>
       <slot></slot>
     </div>`;

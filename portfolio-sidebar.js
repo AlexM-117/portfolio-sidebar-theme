@@ -24,7 +24,6 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
     };
   }
 
@@ -42,12 +41,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
         .wrapper {
           margin: var(--ddd-spacing-2);
           padding: var(--ddd-spacing-4);
-        }
-        h3 span {
-          font-size: var(
-            --portfolio-sidebar-theme-label-font-size,
-            var(--ddd-font-size-s)
-          );
+          background-color: red;
         }
       `,
     ];
@@ -57,11 +51,11 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
   render() {
     return html` <div class="wrapper">
       <div class="links">
-        <p>Link 1</p>
-        <p>Link 2</p>
-        <p>Link 3</p>
-        <p>Link 4</p>
-        <p>Link 5</p>
+        <p><a href="#1">About Me</a></p>
+        <p><a href="#2">Internship Experience</a></p>
+        <p><a href="#3">Project Experience</a></p>
+        <p><a href="#4">Education</a></p>
+        <p><a href="#5">Extracurricular</a></p>
         <slot></slot>
       </div>
     </div>`;
