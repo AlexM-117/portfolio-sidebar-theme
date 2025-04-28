@@ -42,6 +42,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           margin: var(--ddd-spacing-2);
           padding: var(--ddd-spacing-4);
           background-color: red;
+          height: 100vh;
         }
       `,
     ];

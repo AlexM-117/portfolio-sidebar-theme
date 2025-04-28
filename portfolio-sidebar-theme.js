@@ -12,7 +12,7 @@ import "./portfolio-sidebar.js";
  * @demo index.html
  * @element portfolio-sidebar-theme
  */
-export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
+export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   static get tag() {
     return "portfolio-sidebar-theme";
   }
@@ -57,10 +57,10 @@ export class PortfolioSidebarTheme extends DDDSuper(ILitElement) {
 
   // Lit render the HTML
   render() {
-    return html` <portfolio-sidebar></portfolio-sidebar>
-      <div class="wrapper">
-        <slot></slot>
-      </div>`;
+    return html` <div class="wrapper">
+      <portfolio-sidebar></portfolio-sidebar>
+      <slot></slot>
+    </div>`;
   }
 }
 
