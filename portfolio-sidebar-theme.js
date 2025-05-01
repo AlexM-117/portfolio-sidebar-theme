@@ -67,7 +67,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
       (changedProperties.has("screens") || changedProperties.has("screen")) &&
       this.screens.length > 0
     ) {
-      globalThis.location.hash = this.screen;
+      globalThis.location.hash = `screen-${this.screen}`;
       // scroll the screen into view
       let active = this.screens.find((screen) => screen.sid == this.screen);
       if (active) {
@@ -124,16 +124,6 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     </div>`;
   }
 }
-
-this.dispatchEvent(
-  new CustomEvent("screen-change", {
-    bubbles: true,
-    composed: true,
-    detail: {
-      direction: direction,
-    },
-  })
-);
 
 globalThis.customElements.define(
   PortfolioSidebarTheme.tag,

@@ -43,6 +43,21 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           padding: var(--ddd-spacing-4);
           background-color: var(--ddd-theme-default-coalyGray);
           height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: var(--ddd-spacing-3);
+        }
+        .links button {
+          cursor: pointer;
+          background: none;
+          border: none;
+          width: 100%;
+          padding: var(--ddd-spacing-6);
+          color: var(--ddd-theme-primary);
+          font-size: 1rem;
+          font-family: var(--ddd-font-navigation);
         }
       `,
     ];
@@ -107,5 +122,16 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
     </div>`;
   }
 }
+/* every time this is added, based from code repos and hax club, it "removes" sidebar :(
+this.dispatchEvent(
+  new CustomEvent("screen-change", {
+    bubbles: true,
+    composed: true,
+    detail: {
+      direction: direction,
+    },
+  })
+);
+*/
 
 globalThis.customElements.define(PortfolioSidebar.tag, PortfolioSidebar);
