@@ -67,71 +67,10 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
   render() {
     return html` <div class="wrapper">
       <div class="links">
-        <button
-          @click="${() =>
-            this.dispatchEvent(
-              new CustomEvent("screen-change", {
-                detail: { direction: 0 },
-              })
-            )}"
-        >
-          About Me
-        </button>
-        <button
-          @click="${() =>
-            this.dispatchEvent(
-              new CustomEvent("screen-change", {
-                detail: { direction: 1 },
-              })
-            )}"
-        >
-          Work Experience
-        </button>
-        <button
-          @click="${() =>
-            this.dispatchEvent(
-              new CustomEvent("screen-change", {
-                detail: { direction: 2 },
-              })
-            )}"
-        >
-          Project Experience
-        </button>
-        <button
-          @click="${() =>
-            this.dispatchEvent(
-              new CustomEvent("screen-change", {
-                detail: { direction: 3 },
-              })
-            )}"
-        >
-          Extracurricular
-        </button>
-        <button
-          @click="${() =>
-            this.dispatchEvent(
-              new CustomEvent("screen-change", {
-                detail: { direction: 4 },
-              })
-            )}"
-        >
-          Other
-        </button>
         <slot></slot>
       </div>
     </div>`;
   }
 }
-/* every time this is added, based from code repos and hax club, it "removes" sidebar :(
-this.dispatchEvent(
-  new CustomEvent("screen-change", {
-    bubbles: true,
-    composed: true,
-    detail: {
-      direction: direction,
-    },
-  })
-);
-*/
 
 globalThis.customElements.define(PortfolioSidebar.tag, PortfolioSidebar);

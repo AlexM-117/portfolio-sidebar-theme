@@ -19,64 +19,15 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
 
   constructor() {
     super();
-    this.active = {};
-    this.screen = 0;
-    this.screens = [];
-
-    this.addEventListener("screen-change", (e) => {
-      let tmp = this.screen + parseInt(e.detail.direction);
-      tmp = Math.max(0, Math.min(tmp, this.screens.length - 1));
-      this.screen = tmp;
-    });
-    this.addEventListener("screen-ready", (e) => {
-      this.screens = [...this.screens, e.detail.screen];
-    });
-  }
-
-  firstUpdated(changedProperties) {
-    if (super.firstUpdated) {
-      super.firstUpdated(changedProperties);
-    }
-    const hash = globalThis.location.hash.replace("#", "");
-    if (hash && !isNaN(hash)) {
-      this.screen = parseInt(hash);
-    }
+    this.pages = [];
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      screen: { type: Number, reflect: true },
-      screens: { type: Array },
-      active: { type: Object },
+      pages: { type: Array },
     };
-  }
-
-  updated(changedProperties) {
-    if (super.updated) super.updated(changedProperties);
-    // if screen changes, update the hash
-    if (
-      this.shadowRoot &&
-      (changedProperties.has("screens") || changedProperties.has("screen")) &&
-      this.screens.length > 0
-    ) {
-      globalThis.location.hash = `screen-${this.screen}`;
-      // scroll the screen into view
-      let active = this.screens.find((screen) => screen.sid === this.screen);
-      if (active) {
-        this.screens.forEach((screen) => {
-          screen.active = screen.sid === this.screen;
-        });
-
-        this.active = active;
-        this.active.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
-      }
-    }
   }
 
   // Lit scoped styles
@@ -100,7 +51,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
           text-align: left;
         }
         .wrapper {
-          margin-left: 200px;
+          margin-left: 100px;
         }
       `,
     ];
@@ -109,9 +60,42 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   // Lit render the HTML
   render() {
     return html` <div class="wrapper">
-      <portfolio-sidebar></portfolio-sidebar>
-      <slot></slot>
+      <portfolio-sidebar>
+        <ul>
+          ${this.pages.map(
+            (page, index) =>
+              html`<li>
+                <a
+                  href="#${page.number}"
+                  @click="${this.linkChange}"
+                  data-index="${index}"
+                  >${page.title}</a
+                >
+              </li>`
+          )}
+        </ul>
+      </portfolio-sidebar>
+      <div class="wrapper" @page-added="${this.addPage}">
+        <slot></slot>
+      </div>
     </div>`;
+  }
+
+  linkChange(e) {
+    let number = parseInt(e.target.getAttribute("data-index"));
+    if (number >= 0) {
+      this.pages[number].element.scrollIntoView();
+    }
+  }
+
+  addPage(e) {
+    const element = e.detail.value;
+    const page = {
+      number: element.pagenumber,
+      title: element.title,
+      element: element,
+    };
+    this.pages = [...this.pages, page];
   }
 }
 
