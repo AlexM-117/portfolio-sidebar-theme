@@ -47,16 +47,16 @@ export class PortfolioPage extends DDDSuper(LitElement) {
           font-family: var(--ddd-font-navigation);
           font-size: 2.5rem;
           text-align: center;
-          color: black;
+          color: white;
           padding: 1rem;
           margin: 0;
           background: linear-gradient(
             to right,
-            rgba(191, 130, 38, 0.25),
-            rgba(191, 130, 38, 0.5),
-            rgba(191, 130, 38, 1),
-            rgba(191, 130, 38, 0.5),
-            rgba(191, 130, 38, 0.25)
+            rgba(0, 30, 68, 0.5),
+            rgba(0, 30, 68, 0.75),
+            rgba(0, 30, 68, 1),
+            rgba(0, 30, 68, 0.75),
+            rgba(0, 30, 68, 0.5)
           );
         }
         .subtitle-container {

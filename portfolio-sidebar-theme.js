@@ -25,12 +25,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
 
     this.addEventListener("screen-change", (e) => {
       let tmp = this.screen + parseInt(e.detail.direction);
-      if (tmp > this.screens.length - 1) {
-        tmp = this.screens.length - 1;
-      }
-      if (tmp < 0) {
-        tmp = 0;
-      }
+      tmp = Math.max(0, Math.min(tmp, this.screens.length - 1));
       this.screen = tmp;
     });
     this.addEventListener("screen-ready", (e) => {
@@ -42,8 +37,9 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
     }
-    if (parseInt(globalThis.location.hash.replace("#", "")) >= 0) {
-      this.screen = parseInt(globalThis.location.hash.replace("#", ""));
+    const hash = globalThis.location.hash.replace("#", "");
+    if (hash && !isNaN(hash)) {
+      this.screen = parseInt(hash);
     }
   }
 
@@ -58,9 +54,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   }
 
   updated(changedProperties) {
-    if (super.updated) {
-      super.updated(changedProperties);
-    }
+    if (super.updated) super.updated(changedProperties);
     // if screen changes, update the hash
     if (
       this.shadowRoot &&
@@ -69,16 +63,12 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     ) {
       globalThis.location.hash = `screen-${this.screen}`;
       // scroll the screen into view
-      let active = this.screens.find((screen) => screen.sid == this.screen);
+      let active = this.screens.find((screen) => screen.sid === this.screen);
       if (active) {
-        this.screens.map((screen) => {
-          if (screen.sid == this.screen) {
-            screen.active = true;
-          } else {
-            screen.active = false;
-          }
+        this.screens.forEach((screen) => {
+          screen.active = screen.sid === this.screen;
         });
-        this.active = null;
+
         this.active = active;
         this.active.scrollIntoView({
           behavior: "smooth",

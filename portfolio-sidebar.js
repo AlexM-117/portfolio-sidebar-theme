@@ -71,7 +71,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           @click="${() =>
             this.dispatchEvent(
               new CustomEvent("screen-change", {
-                detail: { direction: "screen-1" },
+                detail: { direction: 0 },
               })
             )}"
         >
@@ -81,7 +81,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           @click="${() =>
             this.dispatchEvent(
               new CustomEvent("screen-change", {
-                detail: { direction: "screen-2" },
+                detail: { direction: 1 },
               })
             )}"
         >
@@ -91,7 +91,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           @click="${() =>
             this.dispatchEvent(
               new CustomEvent("screen-change", {
-                detail: { direction: "screen-3" },
+                detail: { direction: 2 },
               })
             )}"
         >
@@ -101,7 +101,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           @click="${() =>
             this.dispatchEvent(
               new CustomEvent("screen-change", {
-                detail: { direction: "screen-4" },
+                detail: { direction: 3 },
               })
             )}"
         >
@@ -111,7 +111,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           @click="${() =>
             this.dispatchEvent(
               new CustomEvent("screen-change", {
-                detail: { direction: "screen-5" },
+                detail: { direction: 4 },
               })
             )}"
         >
