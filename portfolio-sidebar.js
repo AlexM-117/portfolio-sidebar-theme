@@ -39,9 +39,9 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           font-family: var(--ddd-font-navigation);
         }
         .wrapper {
-          margin: var(--ddd-spacing-2);
+          margin: var(--ddd-spacing-0);
           padding: var(--ddd-spacing-4);
-          background-color: red;
+          background-color: var(--ddd-theme-default-coalyGray);
           height: 100vh;
         }
       `,
@@ -52,11 +52,56 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
   render() {
     return html` <div class="wrapper">
       <div class="links">
-        <p><a href="#1">About Me</a></p>
-        <p><a href="#2">Internship Experience</a></p>
-        <p><a href="#3">Project Experience</a></p>
-        <p><a href="#4">Education</a></p>
-        <p><a href="#5">Extracurricular</a></p>
+        <button
+          @click="${() =>
+            this.dispatchEvent(
+              new CustomEvent("screen-change", {
+                detail: { direction: "screen-1" },
+              })
+            )}"
+        >
+          About Me
+        </button>
+        <button
+          @click="${() =>
+            this.dispatchEvent(
+              new CustomEvent("screen-change", {
+                detail: { direction: "screen-2" },
+              })
+            )}"
+        >
+          Work Experience
+        </button>
+        <button
+          @click="${() =>
+            this.dispatchEvent(
+              new CustomEvent("screen-change", {
+                detail: { direction: "screen-3" },
+              })
+            )}"
+        >
+          Project Experience
+        </button>
+        <button
+          @click="${() =>
+            this.dispatchEvent(
+              new CustomEvent("screen-change", {
+                detail: { direction: "screen-4" },
+              })
+            )}"
+        >
+          Extracurricular
+        </button>
+        <button
+          @click="${() =>
+            this.dispatchEvent(
+              new CustomEvent("screen-change", {
+                detail: { direction: "screen-5" },
+              })
+            )}"
+        >
+          Other
+        </button>
         <slot></slot>
       </div>
     </div>`;

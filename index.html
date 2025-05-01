@@ -19,67 +19,38 @@
         margin: 0;
         padding: 0;
       }
-      #demo {
-        margin: var(--ddd-spacing-2);
-      }
       portfolio-sidebar-theme {
-        margin: var(--ddd-spacing-2);
-        border: var(--ddd-border-md);
-        border-radius: var(--ddd-radius-lg);
-      }
-      portfolio-sidebar-theme:hover {
-        box-shadow: var(--ddd-boxShadow-sm);
-      }
-      #example {
-        --portfolio-sidebar-theme-font-size: var(--ddd-font-size-l);
-        background-color: var(--ddd-accent-2);
-        color: var(--ddd-primary-17);
+        margin: var(--ddd-spacing-0);
       }
     </style>
     <title>portfolio-sidebar-theme</title>
   </head>
 
   <body>
-    <div id="demo">
-      <h1>portfolio-sidebar-theme</h1>
-      <portfolio-sidebar-theme>
-        <portfolio-page
-          title="Page 1"
-          subtitle="thing thing"
-          description="text text text"
-          pageNumber="1"
-        >
-        </portfolio-page>
-        <portfolio-page
-          title="Page 2"
-          subtitle="thing thing"
-          description="text text text"
-          pageNumber="2"
-        >
-        </portfolio-page>
-        <portfolio-page
-          title="Page 3"
-          subtitle="thing thing"
-          description="text text text"
-          pageNumber="3"
-        >
-        </portfolio-page>
-        <portfolio-page
-          title="Page 4"
-          subtitle="thing thing"
-          description="text text text"
-          pageNumber="4"
-        >
-        </portfolio-page>
-        <portfolio-page
-          title="Page 5"
-          subtitle="thing thing"
-          description="text text text"
-          pageNumber="5"
-        >
-        </portfolio-page>
-      </portfolio-sidebar-theme>
-    </div>
+    <portfolio-sidebar-theme>
+      <portfolio-page title="About Me" id="screen-1">
+        <p>test thing here</p>
+      </portfolio-page>
+      <portfolio-page
+        title="Work Experience"
+        subtitle="Internships & Professional Growth"
+        id="screen-2"
+      >
+      </portfolio-page>
+      <portfolio-page
+        title="Project Experience"
+        subtitle="Skills & Expertise Showcase"
+        id="screen-3"
+      >
+      </portfolio-page>
+      <portfolio-page
+        title="Extracurricular"
+        subtitle="Engagement in Clubs & Organizations"
+        id="screen-4"
+      >
+      </portfolio-page>
+      <portfolio-page title="other" id="screen-5"></portfolio-page>
+    </portfolio-sidebar-theme>
     <script type="module" src="./portfolio-sidebar-theme.js"></script>
     <script type="module" src="./portfolio-page.js"></script>
   </body>
