@@ -50,14 +50,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
           color: white;
           padding: 1rem;
           margin: 0;
-          background: linear-gradient(
-            to right,
-            rgba(0, 30, 68, 0.5),
-            rgba(0, 30, 68, 0.75),
-            rgba(0, 30, 68, 1),
-            rgba(0, 30, 68, 0.75),
-            rgba(0, 30, 68, 0.5)
-          );
+          background-color: var(--ddd-theme-default-nittanyNavy);
         }
         .subtitle-container {
           display: block;

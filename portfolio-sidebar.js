@@ -49,15 +49,20 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           justify-content: center;
           gap: var(--ddd-spacing-3);
         }
-        .links button {
-          cursor: pointer;
-          background: none;
-          border: none;
-          width: 100%;
-          padding: var(--ddd-spacing-6);
-          color: var(--ddd-theme-primary);
+        .links {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--ddd-spacing-2);
+        }
+        ::slotted(a) {
+          display: block;
+          padding: var(--ddd-spacing-3);
+          text-decoration: none;
           font-size: 1rem;
           font-family: var(--ddd-font-navigation);
+          text-align: center;
+          color: white;
         }
       `,
     ];

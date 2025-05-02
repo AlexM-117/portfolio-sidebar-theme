@@ -61,19 +61,17 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   render() {
     return html` <div class="wrapper">
       <portfolio-sidebar>
-        <ul>
-          ${this.pages.map(
-            (page, index) =>
-              html`<li>
-                <a
-                  href="#${page.number}"
-                  @click="${this.linkChange}"
-                  data-index="${index}"
-                  >${page.title}</a
-                >
-              </li>`
-          )}
-        </ul>
+        ${this.pages.map(
+          (page, index) =>
+            html`
+              <a
+                href="#${page.number}"
+                @click="${this.linkChange}"
+                data-index="${index}"
+                >${page.title}</a
+              >
+            `
+        )}
       </portfolio-sidebar>
       <div class="wrapper" @page-added="${this.addPage}">
         <slot></slot>
