@@ -28,31 +28,26 @@
 
   <body>
     <portfolio-sidebar-theme>
-      <portfolio-page title="About Me" pagenumber="1">
-        <p>test thing here</p>
-      </portfolio-page>
-      <portfolio-page
-        title="Work Experience"
-        subtitle="Internships & Professional Growth"
-        pagenumber="2"
-      >
-      </portfolio-page>
-      <portfolio-page
-        title="Project Experience"
-        subtitle="Skills & Expertise Showcase"
-        pagenumber="3"
-      >
-      </portfolio-page>
-      <portfolio-page
-        title="Extracurricular"
-        subtitle="Engagement in Clubs & Organizations"
-        pagenumber="4"
-      >
-      </portfolio-page>
-      <portfolio-page title="Contact Me" pagenumber="5"></portfolio-page>
+      <portfolio-page title="About Me" pagenumber="1"
+        ><text-image-block></text-image-block
+      ></portfolio-page>
+      <portfolio-page title="Resume" pagenumber="2"
+        ><text-image-block></text-image-block
+      ></portfolio-page>
+      <portfolio-page title="Work Experience" pagenumber="3"
+        ><text-image-block></text-image-block
+      ></portfolio-page>
+      <portfolio-page title="Project Experience" pagenumber="4"
+        ><project-card></project-card
+      ></portfolio-page>
+      <portfolio-page title="Extracurricular" pagenumber="5"
+        ><project-card></project-card
+      ></portfolio-page>
+      <portfolio-page title="Contact Me" pagenumber="6"></portfolio-page>
     </portfolio-sidebar-theme>
     <script type="module" src="./portfolio-sidebar-theme.js"></script>
     <script type="module" src="./portfolio-page.js"></script>
-    <script type="module" src="./scroll-button.js"></script>
+    <script type="module" src="./project-card.js"></script>
+    <script type="module" src="./text-image-block.js"></script>
   </body>
 </html>

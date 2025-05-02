@@ -79,7 +79,7 @@ export class ScrollButton extends DDDSuper(LitElement) {
   }
 
   _scrollToTop() {
-    window.scrollTo({ top: 0, behavio: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
 

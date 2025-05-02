@@ -19,7 +19,6 @@ export class PortfolioPage extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.title = "";
-    this.subtitle = "";
     this.pagenumber = null;
   }
 
@@ -28,7 +27,6 @@ export class PortfolioPage extends DDDSuper(LitElement) {
     return {
       ...super.properties,
       title: { type: String },
-      subtitle: { type: String },
       pagenumber: { type: Number },
     };
   }
@@ -52,34 +50,14 @@ export class PortfolioPage extends DDDSuper(LitElement) {
           margin: 0;
           background-color: var(--ddd-theme-default-nittanyNavy);
         }
-        .subtitle-container {
-          display: block;
-          align-items: center;
-          justify-content: center;
-          margin: 1rem 0;
-        }
-        h2 {
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin: 0;
-          color: black;
-        }
-        .content-wrapper {
-          text-align: left;
-        }
       `,
     ];
   }
 
   // Lit render the HTML
   render() {
-    return html` <div class="content-wrapper">
-      <h1>${this.title}</h1>
-      <div class="subtitle-container">
-        <h2>${this.subtitle}</h2>
-      </div>
-      <slot></slot>
-    </div>`;
+    return html` <h1>${this.title}</h1>
+      <slot></slot>`;
   }
 
   firstUpdated(changedProperties) {
