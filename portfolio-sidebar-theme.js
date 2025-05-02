@@ -5,6 +5,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import "./portfolio-sidebar.js";
+import "./scroll-button.js";
 
 /**
  * `portfolio-sidebar-theme`
@@ -76,6 +77,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
       <div class="wrapper" @page-added="${this.addPage}">
         <slot></slot>
       </div>
+      <scroll-button></scroll-button>
     </div>`;
   }
 
