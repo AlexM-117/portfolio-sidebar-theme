@@ -22,6 +22,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
     this.description = "Project Description";
     this.link = "#";
     this.image = "";
+    this.expanded = "false";
   }
 
   // Lit reactive properties
@@ -32,6 +33,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
       description: { type: String },
       link: { type: String },
       image: { type: String },
+      expanded: { type: Boolean },
     };
   }
 
@@ -46,10 +48,9 @@ export class ProjectCard extends DDDSuper(LitElement) {
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
-          max-width: 300px;
-          min-height: 450px;
           background-color: var(--ddd-theme-default-coalyGray);
           color: white;
+          max-width: 300px;
           border-radius: var(--ddd-radius-sm);
           overflow: hidden;
         }
@@ -57,6 +58,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           height: 100%;
+          transition: all 0.3s ease-in-out;
         }
         .content {
           padding: 16px;
@@ -66,11 +68,28 @@ export class ProjectCard extends DDDSuper(LitElement) {
         }
         h3 {
           margin: 0 0 0.5rem;
-          font-size: 1.5rem;
+          font-size: 1rem;
         }
         p {
           font-size: 1rem;
           margin: 0 0 1rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          transition: max-height 0.3s ease-in-out;
+        }
+        p.truncated {
+          -webkit-line-clamp: 3;
+          max-height: 6.5rem;
+        }
+        span.toggle {
+          background-color: var(--ddd-theme-default-link);
+          cursor: pointer;
+          font-weight: 0.9rem;
+          margin-bottom: 1rem;
+          text-decoration: none;
+          align-self: flex-start;
         }
         a.button {
           display: block;
@@ -98,7 +117,10 @@ export class ProjectCard extends DDDSuper(LitElement) {
         <img src="${this.image}" />
         <div class="content">
           <h3>${this.title}</h3>
-          <p>${this.description}</p>
+          <p class="${this.expanded ? "" : "truncated"}">${this.description}</p>
+          <span class="toggle" @click="${this.toggleExpanded}">
+            ${this.expanded ? "Show Less" : "Show More"}
+          </span>
         </div>
         <a
           class="button"
@@ -109,6 +131,10 @@ export class ProjectCard extends DDDSuper(LitElement) {
         >
       </div>
     `;
+  }
+
+  toggleExpanded() {
+    this.expanded = !this.expanded;
   }
 }
 
