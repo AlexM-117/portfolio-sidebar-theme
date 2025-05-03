@@ -41,6 +41,7 @@ export class CardList extends DDDSuper(LitElement) {
           flex-wrap: wrap;
           justify-content: space-between;
           gap: 1rem;
+          align-items: flex-start;
         }
       `,
     ];

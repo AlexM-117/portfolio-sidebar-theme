@@ -23,6 +23,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
     this.link = "#";
     this.image = "";
     this.expanded = "false";
+    this.showButton = "true";
   }
 
   // Lit reactive properties
@@ -34,6 +35,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
       link: { type: String },
       image: { type: String },
       expanded: { type: Boolean },
+      showButton: { type: Boolean },
     };
   }
 
@@ -58,6 +60,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           height: 100%;
+          box-sizing: border-box;
           transition: all 0.3s ease-in-out;
         }
         .content {
@@ -65,6 +68,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           flex: 1;
           display: flex;
           flex-direction: column;
+          box-sizing: border-box;
         }
         h3 {
           margin: 0 0 0.5rem;
@@ -122,19 +126,32 @@ export class ProjectCard extends DDDSuper(LitElement) {
             ${this.expanded ? "Show Less" : "Show More"}
           </span>
         </div>
-        <a
-          class="button"
-          href="${this.link}"
-          target="_blank"
-          rel="noopener noreferrer"
-          >View Project</a
-        >
+        ${this.showButton
+          ? html`
+              <a
+                class="button"
+                href="${this.link}"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project
+              </a>
+            `
+          : ""}
       </div>
     `;
   }
 
   toggleExpanded() {
     this.expanded = !this.expanded;
+  }
+
+  connectedCallback() {
+    super.connectedCallback?.();
+    if (this.hasAttribute("showbutton")) {
+      this.showButton = this.getAttribute("showbutton") !== "false";
+    } else {
+      this.showButton = true;
+    }
   }
 }
 
