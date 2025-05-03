@@ -19,7 +19,6 @@ export class TextImageBlock extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.image = "";
-    this.altImg = "Image";
   }
 
   // Lit reactive properties
@@ -27,7 +26,6 @@ export class TextImageBlock extends DDDSuper(LitElement) {
     return {
       ...super.properties,
       image: { type: String },
-      altImg: { type: String },
     };
   }
 
@@ -70,7 +68,7 @@ export class TextImageBlock extends DDDSuper(LitElement) {
   render() {
     return html`
       <div class="container">
-        <img src="${this.image}" alt="${this.altImg}" />
+        <img src="${this.image}" />
         <div class="text-content">
           <slot></slot>
         </div>

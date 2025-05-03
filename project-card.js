@@ -22,7 +22,6 @@ export class ProjectCard extends DDDSuper(LitElement) {
     this.description = "Project Description";
     this.link = "#";
     this.image = "";
-    this.altImg = "Project Image";
   }
 
   // Lit reactive properties
@@ -33,7 +32,6 @@ export class ProjectCard extends DDDSuper(LitElement) {
       description: { type: String },
       link: { type: String },
       image: { type: String },
-      altImg: { type: String },
     };
   }
 
@@ -47,13 +45,20 @@ export class ProjectCard extends DDDSuper(LitElement) {
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
-          max-width: 300px;
-          margin: 1rem;
+          max-width: 320px;
           background-color: var(--ddd-theme-default-coalyGray);
           color: white;
-          border-radius: 1rem;
-          box-sizing: border-box;
-          flex: 1 1 300px;
+          border-radius: var(--ddd-radius-sm);
+          overflow: hidden;
+        }
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .content {
+          padding: 16px;
+          flex: 1;
         }
         h3 {
           margin: 0 0 0.5rem;
@@ -63,12 +68,15 @@ export class ProjectCard extends DDDSuper(LitElement) {
           font-size: 1rem;
           margin: 0 0 1rem;
         }
-        a {
+        a.button {
+          display: block;
+          text-align: center;
           text-decoration: none;
           color: var(--ddd-theme-default-white);
           background-color: var(--ddd-theme-default-nittanyNavy);
           padding: 0.5rem 1rem;
-          border-radius: 0.5rem;
+          margin: 16px;
+          border-radius: var(--ddd-radius-xs);
         }
         img {
           width: 100%;
@@ -82,12 +90,20 @@ export class ProjectCard extends DDDSuper(LitElement) {
   // Lit render the HTML
   render() {
     return html`
-      <img src="${this.image}" alt="${this.altImg}" />
-      <h3>${this.title}</h3>
-      <p>${this.description}</p>
-      <a href="${this.link}" target="_blank" rel="noopener noreferrer"
-        >View Project</a
-      >
+      <div class="card">
+        <img src="${this.image}" />
+        <div class="content">
+          <h3>${this.title}</h3>
+          <p>${this.description}</p>
+        </div>
+        <a
+          class="button"
+          href="${this.link}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View Project</a
+        >
+      </div>
     `;
   }
 }
