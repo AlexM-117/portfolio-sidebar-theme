@@ -35,13 +35,16 @@ export class TextImageBlock extends DDDSuper(LitElement) {
       super.styles,
       css`
         :host {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
           padding: 2rem;
         }
         .container {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           gap: 2rem;
           flex-wrap: wrap;
         }
