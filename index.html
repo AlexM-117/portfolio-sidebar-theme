@@ -22,15 +22,6 @@
       portfolio-sidebar-theme {
         margin: var(--ddd-spacing-0);
       }
-      .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        box-sizing: border-box;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
       project-card {
         flex: 1 1 300px;
         max-width: 300px;
@@ -82,51 +73,41 @@
         ></portfolio-page
       >
       <portfolio-page title="Project Experience" pagenumber="4">
-        <div class="card-container">
-          <project-card
-            title="Campus Card List"
-            description="Created 2 web comments, ddd-card and ddd-card-list, using the HAX toolchain and DDD methodology to replicate the Penn State campus location website with full accuracy. Implemented dynamic, responsive layouts with HAX integration and DOM-driven data rendering to support scalable site development."
-            link=""
-            image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
-            altImg=""
-          ></project-card>
-          <project-card
-            title="AI Security: Prompt Injection Attacks on Large Language Models"
-            description="Conducted a comprehensive security analysis on prompt injection vulnerabilities in large language models, demonstrating how carefully crafted inputs can override safeguards and manipulate outputs. Demonstrated real-world tests against commercial LLMs, revealing critical risks in current LLM deployments and provided layered defense strategies."
-            link=""
-            image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
-            altImg=""
-          ></project-card>
-          <project-card
-            title="Mount Hospital Database"
-            description="Designed and implemented a fully normalized MySQL database for a hypnotical scenario, featuring an ER diagram and enforced referential integrity. Developed optimized SQL queries to generate business reports, showcasing the database's ability to support decision-making."
-            link=""
-            image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
-            altImg=""
-          ></project-card>
-        </div>
+        <project-card
+          title="Campus Card List"
+          description="Created 2 web comments, ddd-card and ddd-card-list, using the HAX toolchain and DDD methodology to replicate the Penn State campus location website with full accuracy. Implemented dynamic, responsive layouts with HAX integration and DOM-driven data rendering to support scalable site development."
+          link="https://github.com/AlexM-117/ddd-card-list"
+          image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
+        ></project-card>
+        <project-card
+          title="AI Security: Prompt Injection Attacks on Large Language Models"
+          description="Conducted a comprehensive security analysis on prompt injection vulnerabilities in large language models, demonstrating how carefully crafted inputs can override safeguards and manipulate outputs. Demonstrated real-world tests against commercial LLMs, revealing critical risks in current LLM deployments and provided layered defense strategies."
+          link=""
+          image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
+        ></project-card>
+        <project-card
+          title="Mount Hospital Database"
+          description="Designed and implemented a fully normalized MySQL database for a hypnotical scenario, featuring an ER diagram and enforced referential integrity. Developed optimized SQL queries to generate business reports, showcasing the database's ability to support decision-making."
+          link=""
+          image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
+        ></project-card>
       </portfolio-page>
       <portfolio-page title="Extracurricular" pagenumber="5">
-        <div class="card-container">
-          <project-card
-            title="Competitive Cyber Security Organization"
-            description="CCSO provides students with opportunities  to develop and refine their cyber defense skills through hands-on training and participate in cybersecurity competitions. Members engage in both offensive and defensive security practices, preparing for real-word scenarios and industry challenges."
-            image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
-            altImg=""
-          ></project-card>
-          <project-card
-            title="Red Cell Analytics Club"
-            description="RCAC focuses on structured analytic techniques and critical thinking to access real-world security issues, simulating adversarial scenarios to enhance problem-solving and decision-making skills. The club emphasizes understanding threats from an adversary's perspective to improve defense strategies."
-            image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
-            altImg=""
-          ></project-card>
-          <project-card
-            title="Cybersecurity Consulting Club"
-            description="C3 empowers student by involving them in practical cybersecurity projects, offering industry-standard experiences that enhance career readiness. The club collaborates with technology-related groups to apply cybersecurity knowledge in real-world scenarios."
-            image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
-            altImg=""
-          ></project-card>
-        </div>
+        <project-card
+          title="Competitive Cyber Security Organization"
+          description="CCSO provides students with opportunities  to develop and refine their cyber defense skills through hands-on training and participate in cybersecurity competitions. Members engage in both offensive and defensive security practices, preparing for real-word scenarios and industry challenges."
+          image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
+        ></project-card>
+        <project-card
+          title="Red Cell Analytics Club"
+          description="RCAC focuses on structured analytic techniques and critical thinking to access real-world security issues, simulating adversarial scenarios to enhance problem-solving and decision-making skills. The club emphasizes understanding threats from an adversary's perspective to improve defense strategies."
+          image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
+        ></project-card>
+        <project-card
+          title="Cybersecurity Consulting Club"
+          description="C3 empowers student by involving them in practical cybersecurity projects, offering industry-standard experiences that enhance career readiness. The club collaborates with technology-related groups to apply cybersecurity knowledge in real-world scenarios."
+          image="https://assets.xboxservices.com/assets/b6/09/b6099a46-010c-4e64-9942-8b1617cf0c29.jpg?n=Halo-Franchise-2020_Super-Hero-1400_1920x1080_02.jpg"
+        ></project-card>
       </portfolio-page>
       <portfolio-page title="Contact Me" pagenumber="6"></portfolio-page>
     </portfolio-sidebar-theme>
