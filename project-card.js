@@ -22,8 +22,8 @@ export class ProjectCard extends DDDSuper(LitElement) {
     this.description = "Project Description";
     this.link = "#";
     this.image = "";
-    this.expanded = "false";
-    this.showButton = "true";
+    this.expanded = false;
+    this.showButton = true;
   }
 
   // Lit reactive properties
@@ -147,11 +147,8 @@ export class ProjectCard extends DDDSuper(LitElement) {
 
   connectedCallback() {
     super.connectedCallback?.();
-    if (this.hasAttribute("showbutton")) {
-      this.showButton = this.getAttribute("showbutton") !== "false";
-    } else {
-      this.showButton = true;
-    }
+    const attr = this.getAttribute("showbutton");
+    this.showButton = attr !== null && attr !== "false";
   }
 }
 
