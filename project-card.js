@@ -59,7 +59,6 @@ export class ProjectCard extends DDDSuper(LitElement) {
         .card {
           display: flex;
           flex-direction: column;
-          height: 100%;
           box-sizing: border-box;
           transition: all 0.3s ease-in-out;
         }
@@ -69,6 +68,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           box-sizing: border-box;
+          justify-content: space-between;
         }
         h3 {
           margin: 0 0 0.5rem;
@@ -87,12 +87,15 @@ export class ProjectCard extends DDDSuper(LitElement) {
           -webkit-line-clamp: 3;
           max-height: 6.5rem;
         }
+        p:not(.truncated) {
+          max-height: none;
+        }
         span.toggle {
           background-color: var(--ddd-theme-default-link);
           cursor: pointer;
           font-weight: 0.9rem;
-          margin-bottom: 1rem;
-          text-decoration: none;
+          margin-top: auto;
+          text-decoration: underline;
           align-self: flex-start;
         }
         a.button {
