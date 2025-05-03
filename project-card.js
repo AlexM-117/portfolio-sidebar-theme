@@ -21,8 +21,8 @@ export class ProjectCard extends DDDSuper(LitElement) {
     this.title = "Project Title";
     this.description = "Project Description";
     this.link = "#";
-    this.srcImg = "";
-    this.imgAlt = "Project Image";
+    this.image = "";
+    this.altImg = "Project Image";
   }
 
   // Lit reactive properties
@@ -32,8 +32,8 @@ export class ProjectCard extends DDDSuper(LitElement) {
       title: { type: String },
       description: { type: String },
       link: { type: String },
-      scrImg: { type: String },
-      imgAlt: { type: String },
+      image: { type: String },
+      altImg: { type: String },
     };
   }
 
@@ -47,11 +47,13 @@ export class ProjectCard extends DDDSuper(LitElement) {
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
-          max-width: 400px;
-          margin: 1rem auto;
+          max-width: 300px;
+          margin: 1rem;
           background-color: var(--ddd-theme-default-coalyGray);
           color: white;
           border-radius: 1rem;
+          box-sizing: border-box;
+          flex: 1 1 300px;
         }
         h3 {
           margin: 0 0 0.5rem;
@@ -80,7 +82,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
   // Lit render the HTML
   render() {
     return html`
-      <img src="${this.srcImg}" alt="${this.imgAlt}" />
+      <img src="${this.image}" alt="${this.altImg}" />
       <h3>${this.title}</h3>
       <p>${this.description}</p>
       <a href="${this.link}" target="_blank" rel="noopener noreferrer"

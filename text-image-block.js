@@ -18,16 +18,16 @@ export class TextImageBlock extends DDDSuper(LitElement) {
 
   constructor() {
     super();
-    this.srcImg = "";
-    this.imgAlt = "Image";
+    this.image = "";
+    this.altImg = "Image";
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      scrImg: { type: String },
-      imgAlt: { type: String },
+      image: { type: String },
+      altImg: { type: String },
     };
   }
 
@@ -55,6 +55,7 @@ export class TextImageBlock extends DDDSuper(LitElement) {
         .text-content {
           flex: 1;
           min-width: 250px;
+          color: black;
         }
         @media (max-width: 768px) {
           .container {
@@ -69,7 +70,7 @@ export class TextImageBlock extends DDDSuper(LitElement) {
   render() {
     return html`
       <div class="container">
-        <img src="${this.srcImg}" alt="${this.imgAlt}" />
+        <img src="${this.image}" alt="${this.altImg}" />
         <div class="text-content">
           <slot></slot>
         </div>
