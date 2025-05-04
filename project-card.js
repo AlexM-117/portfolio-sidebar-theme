@@ -78,7 +78,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
         }
         h3 {
           margin: 0 0 0.5rem;
-          font-size: 1rem;
+          font-size: 0.95rem;
         }
         p {
           font-size: 1rem;
