@@ -48,13 +48,13 @@ export class TextImageBlock extends DDDSuper(LitElement) {
           flex-wrap: wrap;
         }
         img {
-          max-width: 100%;
-          width: 300px;
-          border-radius: 1rem;
+          width: 400px;
+          height: 100%;
+          border-radius: var(--ddd-radius-xs);
         }
         .text-content {
           flex: 1;
-          min-width: 250px;
+          min-width: 300px;
           color: black;
         }
         @media (max-width: 768px) {
