@@ -111,9 +111,12 @@ export class ProjectCard extends DDDSuper(LitElement) {
           border-radius: var(--ddd-radius-xs);
         }
         img {
-          width: 100%;
-          height: 160px;
+          width: 120px;
+          height: 120px;
           object-fit: cover;
+          border-radius: 50%;
+          margin: 12px auto 0 auto;
+          display: block;
         }
         .button-container {
           margin-top: auto;
