@@ -52,15 +52,23 @@ export class ProjectCard extends DDDSuper(LitElement) {
           font-family: var(--ddd-font-navigation);
           background-color: var(--ddd-theme-default-coalyGray);
           color: white;
-          max-width: 300px;
+          width: 100%;
           border-radius: var(--ddd-radius-sm);
           overflow: hidden;
         }
         .card {
           display: flex;
           flex-direction: column;
+          height: auto;
           box-sizing: border-box;
+          overflow: hidden;
           transition: all 0.3s ease-in-out;
+        }
+        .card.collapsed {
+          height: 100%;
+        }
+        .card.expanded {
+          height: 100%;
         }
         .content {
           padding: 16px;
@@ -68,7 +76,6 @@ export class ProjectCard extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           box-sizing: border-box;
-          justify-content: space-between;
         }
         h3 {
           margin: 0 0 0.5rem;
@@ -113,6 +120,12 @@ export class ProjectCard extends DDDSuper(LitElement) {
           height: 160px;
           object-fit: cover;
         }
+        .button-container {
+          margin-top: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
       `,
     ];
   }
@@ -120,38 +133,60 @@ export class ProjectCard extends DDDSuper(LitElement) {
   // Lit render the HTML
   render() {
     return html`
-      <div class="card">
+      <div class="card ${this.expanded ? "expanded" : "collapsed"}">
         <img src="${this.image}" />
         <div class="content">
           <h3>${this.title}</h3>
           <p class="${this.expanded ? "" : "truncated"}">${this.description}</p>
-          <span class="toggle" @click="${this.toggleExpanded}">
-            ${this.expanded ? "Show Less" : "Show More"}
-          </span>
+          <div class="button-container">
+            <span class="toggle" @click="${this.toggleExpanded}">
+              ${this.expanded ? "Show Less" : "Show More"}
+            </span>
+          </div>
+          ${this.showButton
+            ? html`
+                <a
+                  class="button"
+                  href="${this.link}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Project
+                </a>
+              `
+            : ""}
         </div>
-        ${this.showButton
-          ? html`
-              <a
-                class="button"
-                href="${this.link}"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Project
-              </a>
-            `
-          : ""}
       </div>
     `;
   }
 
   toggleExpanded() {
     this.expanded = !this.expanded;
+    this.dispatchEvent(
+      new CustomEvent("card-toggled", {
+        bubbles: true,
+        composed: true,
+        detail: { expanded: this.expanded },
+      })
+    );
   }
 
   connectedCallback() {
     super.connectedCallback?.();
     const attr = this.getAttribute("showbutton");
     this.showButton = attr !== null && attr !== "false";
+  }
+
+  updated(changedProperties) {
+    super.updated?.(changedProperties);
+    if (changedProperties.has("expanded")) {
+      this.dispatchEvent(
+        new CustomEvent("card-toggled", {
+          bubbles: true,
+          composed: true,
+          detail: { expanded: this.exapnded },
+        })
+      );
+    }
   }
 }
 
