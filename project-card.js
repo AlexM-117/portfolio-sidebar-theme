@@ -117,6 +117,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
         }
         .button-container {
           margin-top: auto;
+          padding: 4px;
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
