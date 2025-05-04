@@ -45,21 +45,21 @@ export class ProjectCard extends DDDSuper(LitElement) {
       super.styles,
       css`
         :host {
-          display: flex;
-          flex-direction: column;
+          display: block;
+          width: 100%;
+          height: 100%;
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
           background-color: var(--ddd-theme-default-coalyGray);
           color: white;
-          width: 100%;
           border-radius: var(--ddd-radius-sm);
           overflow: hidden;
         }
         .card {
           display: flex;
           flex-direction: column;
-          height: auto;
+          height: 100%;
           box-sizing: border-box;
           overflow: hidden;
           transition: all 0.3s ease-in-out;
@@ -75,7 +75,6 @@ export class ProjectCard extends DDDSuper(LitElement) {
           flex: 1;
           display: flex;
           flex-direction: column;
-          box-sizing: border-box;
         }
         h3 {
           margin: 0 0 0.5rem;
@@ -92,27 +91,23 @@ export class ProjectCard extends DDDSuper(LitElement) {
         }
         p.truncated {
           -webkit-line-clamp: 3;
-          max-height: 6.5rem;
+          max-height: 4.5rem;
         }
         p:not(.truncated) {
           max-height: none;
         }
-        span.toggle {
-          background-color: var(--ddd-theme-default-link);
+        .toggle {
+          color: var(--ddd-theme-default-white);
           cursor: pointer;
-          font-weight: 0.9rem;
-          margin-top: auto;
-          text-decoration: underline;
-          align-self: flex-start;
+          text-decoration: none;
         }
         a.button {
-          display: block;
           text-align: center;
           text-decoration: none;
           color: var(--ddd-theme-default-white);
           background-color: var(--ddd-theme-default-nittanyNavy);
           padding: 0.5rem 1rem;
-          margin: 16px;
+          font-size: 0.9rem;
           border-radius: var(--ddd-radius-xs);
         }
         img {
@@ -125,6 +120,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+          align-items: flex-start;
         }
       `,
     ];
