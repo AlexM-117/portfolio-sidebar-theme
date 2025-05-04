@@ -142,18 +142,18 @@ export class ProjectCard extends DDDSuper(LitElement) {
             <span class="toggle" @click="${this.toggleExpanded}">
               ${this.expanded ? "Show Less" : "Show More"}
             </span>
+            ${this.showButton
+              ? html`
+                  <a
+                    class="button"
+                    href="${this.link}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View Project
+                  </a>
+                `
+              : ""}
           </div>
-          ${this.showButton
-            ? html`
-                <a
-                  class="button"
-                  href="${this.link}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View Project
-                </a>
-              `
-            : ""}
         </div>
       </div>
     `;
