@@ -53,6 +53,25 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         }
         .wrapper {
           margin-left: var(--ddd-spacing-25);
+          flex: 1;
+          box-sizing: border-box;
+        }
+        .layout {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+        @media (max-width: 768px) {
+          .layout {
+            flex-direction: column;
+          }
+          portfolio-sidebar {
+            display: none;
+          }
+          .wrapper {
+            margin-left: 0;
+            width: 100%;
+          }
         }
       `,
     ];
@@ -61,23 +80,25 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   // Lit render the HTML
   render() {
     return html` <div class="wrapper">
-      <portfolio-sidebar>
-        ${this.pages.map(
-          (page, index) =>
-            html`
-              <a
-                href="#${page.number}"
-                @click="${this.linkChange}"
-                data-index="${index}"
-                >${page.title}</a
-              >
-            `
-        )}
-      </portfolio-sidebar>
-      <div class="wrapper" @page-added="${this.addPage}">
-        <slot></slot>
+      <div class="layout">
+        <portfolio-sidebar>
+          ${this.pages.map(
+            (page, index) =>
+              html`
+                <a
+                  href="#${page.number}"
+                  @click="${this.linkChange}"
+                  data-index="${index}"
+                  >${page.title}</a
+                >
+              `
+          )}
+        </portfolio-sidebar>
+        <div class="wrapper" @page-added="${this.addPage}">
+          <slot></slot>
+        </div>
+        <scroll-button></scroll-button>
       </div>
-      <scroll-button></scroll-button>
     </div>`;
   }
 
