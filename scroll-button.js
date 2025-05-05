@@ -41,12 +41,19 @@ export class ScrollButton extends DDDSuper(LitElement) {
           bottom: var(--ddd-spacing-5);
           right: var(--ddd-spacing-5);
           z-index: 1000;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s ease;
+        }
+        :host([visible]) {
+          opacity: 1;
+          pointer-events: auto;
         }
         button {
-          background-color: var(--ddd-theme-default-nittanyNavy);
+          background-color: var(--ddd-theme-default-slateGray);
           color: var(--ddd-theme-default-white);
-          width: 3rem;
-          height: 3rem;
+          width: 2.5rem;
+          height: 2.5rem;
           border-radius: 50%;
           border: none;
           cursor: pointer;
@@ -58,11 +65,7 @@ export class ScrollButton extends DDDSuper(LitElement) {
 
   // Lit render the HTML
   render() {
-    return html`
-      ${this.visible
-        ? html` <button @click="${this._scrollToTop}">↑</button> `
-        : ""}
-    `;
+    return html`<button @click="${this._scrollToTop}">↑</button>`;
   }
 
   connectedCallback() {
@@ -75,11 +78,16 @@ export class ScrollButton extends DDDSuper(LitElement) {
     window.removeEventListener("scroll", this._onScroll);
   }
   _onScroll() {
-    this.visible = window.scrollY > 300;
+    this.visible = window.scrollY > window.innerHeight;
   }
 
   _scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  updated(changedProperties) {
+    super.updated?.(changedProperties);
+    this.toggleAttribute("visible", this.visible);
   }
 }
 

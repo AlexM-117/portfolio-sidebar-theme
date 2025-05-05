@@ -28,6 +28,11 @@
         min-width: 300px;
         box-sizing: border-box;
         align-self: flex-start;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(162, 170, 173, 1.5);
       }
     </style>
     <title>portfolio-sidebar-theme</title>
@@ -115,7 +120,7 @@
       <portfolio-page title="Extracurricular" pagenumber="5">
         <card-list>
           <project-card
-            title="Competitive Cyber Security Org"
+            title="Competitive Cyber Security Organization"
             description="CCSO provides students with opportunities to develop and refine their cyber defense skills through hands-on training and participate in cybersecurity competitions. Members engage in both offensive and defensive security practices, preparing for real-word scenarios and industry challenges."
             image="/assets/CCSO.png"
             showButton="false"

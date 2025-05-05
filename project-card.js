@@ -62,7 +62,6 @@ export class ProjectCard extends DDDSuper(LitElement) {
           height: 100%;
           box-sizing: border-box;
           overflow: hidden;
-          transition: all 0.3s ease-in-out;
         }
         .card.collapsed {
           height: 100%;
@@ -106,9 +105,12 @@ export class ProjectCard extends DDDSuper(LitElement) {
           text-decoration: none;
           color: var(--ddd-theme-default-white);
           background-color: var(--ddd-theme-default-nittanyNavy);
-          padding: 0.5rem 1rem;
+          padding: 0.75rem 1.25rem;
           font-size: 0.9rem;
           border-radius: var(--ddd-radius-xs);
+        }
+        a.button:hover {
+          background-color: var(--ddd-theme-default-link);
         }
         img {
           width: 120px;
@@ -124,7 +126,9 @@ export class ProjectCard extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          align-items: flex-start;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
       `,
     ];
