@@ -24,6 +24,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
     this.image = "";
     this.expanded = false;
     this.showButton = true;
+    this.downloadName = "";
   }
 
   // Lit reactive properties
@@ -36,6 +37,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
       image: { type: String },
       expanded: { type: Boolean },
       showButton: { type: Boolean },
+      downloadName: { type: String },
     };
   }
 
@@ -151,6 +153,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
                   <a
                     class="button"
                     href="${this.link}"
+                    download="${this.downloadName}"
                     target="_blank"
                     rel="noopener noreferrer"
                     >View Project
