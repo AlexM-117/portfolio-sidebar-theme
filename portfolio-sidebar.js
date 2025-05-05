@@ -46,7 +46,6 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
           gap: var(--ddd-spacing-2);
         }
         .links {
