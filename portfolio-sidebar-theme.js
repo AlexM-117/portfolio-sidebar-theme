@@ -46,13 +46,13 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
           display: block;
           position: fixed;
           width: 200px;
-          top: 0;
-          bottom: 0;
-          left: 0;
+          top: var(--ddd-spacing-0);
+          bottom: var(--ddd-spacing-0);
+          left: var(--ddd-spacing-0);
           text-align: left;
         }
         .wrapper {
-          margin-left: 100px;
+          margin-left: var(--ddd-spacing-25);
         }
       `,
     ];

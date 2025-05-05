@@ -62,7 +62,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
           font-size: 1rem;
           font-family: var(--ddd-font-navigation);
           text-align: center;
-          color: white;
+          color: var(--ddd-theme-default-white);
         }
         .image {
           width: 160px;

@@ -38,13 +38,13 @@ export class ScrollButton extends DDDSuper(LitElement) {
       css`
         :host {
           position: fixed;
-          bottom: 20px;
-          right: 20px;
+          bottom: var(--ddd-spacing-5);
+          right: var(--ddd-spacing-5);
           z-index: 1000;
         }
         button {
           background-color: var(--ddd-theme-default-nittanyNavy);
-          color: white;
+          color: var(--ddd-theme-default-white);
           width: 3rem;
           height: 3rem;
           border-radius: 50%;

@@ -45,9 +45,9 @@ export class PortfolioPage extends DDDSuper(LitElement) {
           font-family: var(--ddd-font-navigation);
           font-size: 2.5rem;
           text-align: center;
-          color: white;
+          color: var(--ddd-theme-default-white);
           padding: 1rem;
-          margin: 0;
+          margin: var(--ddd-spacing-0);
           background-color: var(--ddd-theme-default-nittanyNavy);
         }
       `,

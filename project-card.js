@@ -52,7 +52,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
           background-color: var(--ddd-theme-default-coalyGray);
-          color: white;
+          color: var(--ddd-theme-default-white);
           border-radius: var(--ddd-radius-sm);
           overflow: hidden;
         }
@@ -71,7 +71,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
           height: 100%;
         }
         .content {
-          padding: 16px;
+          padding: var(--ddd-spacing-4);
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -120,7 +120,7 @@ export class ProjectCard extends DDDSuper(LitElement) {
         }
         .button-container {
           margin-top: auto;
-          padding: 4px;
+          padding: var(--ddd-spacing-1);
           display: flex;
           flex-direction: column;
           gap: 0.5rem;

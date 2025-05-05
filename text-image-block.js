@@ -55,7 +55,7 @@ export class TextImageBlock extends DDDSuper(LitElement) {
         .text-content {
           flex: 1;
           min-width: 300px;
-          color: black;
+          color: var(--ddd-theme-default-coalyGray);
         }
         @media (max-width: 768px) {
           .container {
