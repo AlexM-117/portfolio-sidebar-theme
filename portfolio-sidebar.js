@@ -75,11 +75,7 @@ export class PortfolioSidebar extends DDDSuper(LitElement) {
   // Lit render the HTML
   render() {
     return html` <div class="wrapper">
-      <img
-        class="image"
-        src="https://brand.psu.edu/images/backgrounds/athletic-reverse.png"
-        alt="Penn State"
-      />
+      <img class="image" src="./assets/PennState.png" alt="Penn State" />
       <div class="links">
         <slot></slot>
       </div>
